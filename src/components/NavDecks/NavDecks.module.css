@@ -1,0 +1,36 @@
+.container {
+    text-align: center;
+    font-family: sans-serif;
+    width: 100%;
+    height: 46em;
+    background-color: rgb(218, 218, 218);
+    margin: 2em 2em;
+    border-radius: .5em;
+    box-shadow: .4em .4em .8em rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.container button {
+    font-size: 1.2em;
+    background-color: transparent;
+    border: dotted 0.2em;
+    width: 90%;
+    padding: 0.5em;
+    transition: .4s;
+    cursor: pointer;
+    
+}
+
+.container button:hover, p:hover {
+    background-color: rgb(189, 189, 189);
+}
+
+.container p {
+    cursor: pointer;
+    padding: 1em;
+    transition: .4s;
+}
+
+.container p:hover {
+    transform: scale(1.1);
+}
