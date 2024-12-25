@@ -1,0 +1,15 @@
+.deckDetailContainer {
+    text-align: center;
+    font-family: sans-serif;
+    width: 93%;
+    height: 46em;
+    background-color: rgb(218, 218, 218);
+    margin: 2em 2em;
+    border-radius: .5em;
+    box-shadow: .4em .4em .8em rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.deckDetailContainer p {
+    cursor: pointer;
+}

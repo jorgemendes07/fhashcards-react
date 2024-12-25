@@ -1,7 +1,7 @@
-.container {
+.navContainer {
     text-align: center;
     font-family: sans-serif;
-    width: 100%;
+    width: 93%;
     height: 46em;
     background-color: rgb(218, 218, 218);
     margin: 2em 2em;
@@ -10,7 +10,7 @@
     overflow: hidden;
 }
 
-.container button {
+.navContainer button {
     font-size: 1.2em;
     background-color: transparent;
     border: dotted 0.2em;
@@ -21,16 +21,16 @@
     
 }
 
-.container button:hover, p:hover {
+.navContainer button:hover, .navContainer p:hover {
     background-color: rgb(189, 189, 189);
 }
 
-.container p {
+.navContainer p {
     cursor: pointer;
     padding: 1em;
     transition: .4s;
 }
 
-.container p:hover {
+.navContainer p:hover {
     transform: scale(1.1);
 }

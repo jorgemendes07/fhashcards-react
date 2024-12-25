@@ -13,7 +13,7 @@ export default function Card({ content }) {
 
     return (
         <>
-            <div className={styles.container} onClick={toggleContent}> 
+            <div className={styles.cardContainer} onClick={toggleContent}> 
                 <p>{currentContent}</p>
             </div>
         </>
