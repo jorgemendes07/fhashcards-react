@@ -9,9 +9,15 @@
     box-shadow: .4em .4em .8em rgba(0, 0, 0, 0.8);
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: .4s;
 }
 
 .cardContainer p {
-    color: black;
     font-size: 3em;
+}
+
+.cardContainer:hover {
+    background-color: rgb(189, 189, 189);
 }

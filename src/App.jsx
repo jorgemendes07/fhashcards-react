@@ -19,21 +19,26 @@ export default function App() {
 
   return (
     <>
-      
-      <div className={styles.appContainer}>
+      <div className={` ${styles.appContainer} 
+      ${
+        selectedDeck
+        ? styles.appContainerWithDetails
+        : styles.appContainerWithoutDetails
+      }`}
+      >
         <div className={styles.nav}>
           <NavDecks onDeckSelect={handleDeckSelected}/>
         </div>
       
-        <div className={styles.details}>
-          {selectedDeck && (
+        {selectedDeck && (
+          <div className={styles.details}>
             <DeckDetail
               deckName={selectedDeck}
               onBack={handleBackToMain}
             />
-          )}
         </div>
-
+        )}
+        
         <div className={styles.main}>
           <Title />
           <Card content='scary'/>

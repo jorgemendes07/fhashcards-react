@@ -8,8 +8,32 @@
     border-radius: .5em;
     box-shadow: .4em .4em .8em rgba(0, 0, 0, 0.8);
     overflow: hidden;
+    user-select: none;
 }
 
 .deckDetailContainer p {
     cursor: pointer;
+    transition: .4s;
+    padding: .4em;
+    margin: .4em 0;
+}
+
+.deckDetailContainer button {
+    font-size: 1.2em;
+    background-color: transparent;
+    border: dotted 0.2em;
+    width: 90%;
+    padding: 0.5em;
+    transition: .4s;
+    cursor: pointer;
+    
+}
+
+.deckDetailContainer P:hover  {
+    background-color: rgb(189, 189, 189);
+    transform: scale(1.1);
+}
+
+.deckDetailContainer button:hover {
+    background-color: rgb(189, 189, 189);
 }

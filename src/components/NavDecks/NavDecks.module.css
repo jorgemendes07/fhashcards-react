@@ -29,6 +29,7 @@
     cursor: pointer;
     padding: 1em;
     transition: .4s;
+    user-select: none;
 }
 
 .navContainer p:hover {
