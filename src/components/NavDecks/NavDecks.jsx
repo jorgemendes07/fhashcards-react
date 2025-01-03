@@ -7,7 +7,7 @@ export default function NavDecks({ onDeckSelect }) {
     const handleAddDeck = () => {
         const newDeckName = window.prompt('Name of the new deck:')
         if (newDeckName && newDeckName.trim()) {
-            setDecks([...decks, newDeckName])
+            setDecks([...decks, newDeckName.trim()])
         }
     }
 
@@ -24,7 +24,9 @@ export default function NavDecks({ onDeckSelect }) {
             {decks.map((deck, index) => (
                 <p 
                     key={index}
-                    onClick={() => onDeckSelect(deck)}>
+                    onClick={() => onDeckSelect(deck)}
+                    className={styles.deckItem}
+                    >
                         {deck}
                 </p>
             ))}
