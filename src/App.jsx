@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <>
-      {/* <ItemDeckConfig /> */}
+      <ItemDeckConfig />
 
       <div className={` ${styles.appContainer} 
       ${
