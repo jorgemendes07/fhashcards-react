@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './DeckDetail.module.css'
+import ItemDeckConfig from './ItemDeckConfig/ItemDeckConfig'
 
 export default function DeckDetail({ deckName, onBack }) {
 
@@ -9,8 +10,17 @@ export default function DeckDetail({ deckName, onBack }) {
         const newCardItemFront = window.prompt('Front')
         const newCardItemBack = window.prompt('Back')
         if(newCardItemFront && newCardItemBack && newCardItemFront.trim() && newCardItemBack.trim()) {
-            setCardList([...cardList, newCardItemFront])
+            const newCard = {
+                id: Date.now(),
+                front: newCardItemFront,
+                back: newCardItemBack
+            } 
+            setCardList([...cardList, newCard])
         }
+    }
+
+    const handleCardClick = (id) => {
+        setSelectedCardId(id)
     }
 
     return(
@@ -22,14 +32,19 @@ export default function DeckDetail({ deckName, onBack }) {
                 + Add card
             </button>
             <br />
-            <p>Scary</p>
-            {cardList.map((item, index) => (
+
+            {cardList.map((item) => (
                 <p
-                key={index}
+                key={item.id}
+                onClick={() => handleCardClick(item.id)}
                 >
-                    {item}
+                    {item.front}
                 </p>
             ))}
+
+            {selectedCardId && (
+                <ItemDeckConfig card={cardList.find(item => item.id === selectedCardId)} />
+            )}
         </div>
     )
 }

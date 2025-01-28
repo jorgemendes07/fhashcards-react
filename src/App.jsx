@@ -16,9 +16,8 @@ export default function App() {
 
   return (
     <>
-      <ItemDeckConfig />
 
-      <div className={` ${styles.appContainer} 
+      <div className={` ${styles.appContainer}
       ${
         selectedDeck
         ? styles.appContainerWithDetails

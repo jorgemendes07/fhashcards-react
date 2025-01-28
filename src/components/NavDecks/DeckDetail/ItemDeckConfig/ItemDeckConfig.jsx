@@ -1,20 +1,46 @@
+import { useState } from 'react'
 import styles from './ItemDeckConfig.module.css'
 
-export default function ItemDeckConfig() {
+export default function ItemDeckConfig({ card }) {
+    const [editedCard, setEditedCard] = useState(card)
+
+    const handleSave = () => {
+        console.log('Salvar alterações para a carta:', editedCard)
+    }
+
+    const handleDelete = () => {
+        console.log('Deletar carta com id:', card.id)
+    }
+
+    const handleInputChange = (e, field) => {
+        setEditedCard({
+            ...editedCard,
+            [field]: e.target.value
+        })
+    }
+
     return (
         <>
             <div className={styles.background}>
                 <div className={styles.itemDeckConfigContainer}>
-                <p className={styles.itemConfigClose}>X</p>
+                    <p 
+                    className={styles.itemConfigClose} onClick={() => setEditedCard(null)}>X</p>
                     <div className={styles.itemConfigDetails}>
-                        
                         <p>Front view</p>
-                        <input type="text" placeholder='Scary' />
+                        <input 
+                            type="text" 
+                            value={editedCard.front} 
+                            onChange={(e) => handleInputChange(e, 'front')}
+                        />
                         <p>Back view</p>
-                        <input type="text" placeholder='Assustador' />
+                        <input 
+                            type="text" 
+                            value={editedCard.back} 
+                            onChange={(e) => handleInputChange(e, 'back')}
+                            />
                         <div className={styles.itemDetailsButton}>
-                            <button>Save changes</button>
-                            <button>Delete item</button>
+                            <button onClick={handleSave}>Save changes</button>
+                            <button onClick={handleDelete}>Delete item</button>
                         </div>
                         
                     </div>
