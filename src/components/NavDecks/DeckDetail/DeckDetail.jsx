@@ -5,6 +5,7 @@ import ItemDeckConfig from './ItemDeckConfig/ItemDeckConfig'
 export default function DeckDetail({ deckName, onBack }) {
 
     const [cardList, setCardList] = useState([])
+    const [selectedCardId, setSelectedCardId] = useState(null)
 
     const handleCardList = () => {
         const newCardItemFront = window.prompt('Front')
@@ -43,7 +44,10 @@ export default function DeckDetail({ deckName, onBack }) {
             ))}
 
             {selectedCardId && (
-                <ItemDeckConfig card={cardList.find(item => item.id === selectedCardId)} />
+                <ItemDeckConfig 
+                card={cardList.find(item => item.id === selectedCardId)} 
+                onClose={() => setSelectedCardId(null)}
+                />
             )}
         </div>
     )

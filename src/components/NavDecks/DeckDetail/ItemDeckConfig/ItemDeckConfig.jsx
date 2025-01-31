@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './ItemDeckConfig.module.css'
 
-export default function ItemDeckConfig({ card }) {
+export default function ItemDeckConfig({ card, onClose }) {
     const [editedCard, setEditedCard] = useState(card)
 
     const handleSave = () => {
@@ -20,32 +20,29 @@ export default function ItemDeckConfig({ card }) {
     }
 
     return (
-        <>
-            <div className={styles.background}>
-                <div className={styles.itemDeckConfigContainer}>
-                    <p 
-                    className={styles.itemConfigClose} onClick={() => setEditedCard(null)}>X</p>
-                    <div className={styles.itemConfigDetails}>
-                        <p>Front view</p>
-                        <input 
-                            type="text" 
-                            value={editedCard.front} 
-                            onChange={(e) => handleInputChange(e, 'front')}
+        <div className={styles.background}>
+            <div className={styles.itemDeckConfigContainer}>
+                <p 
+                className={styles.itemConfigClose} onClick={onClose}>X</p>
+                <div className={styles.itemConfigDetails}>
+                    <p>Front view</p>
+                    <input 
+                        type="text" 
+                        value={editedCard.front} 
+                        onChange={(e) => handleInputChange(e, 'front')}
+                    />
+                    <p>Back view</p>
+                    <input 
+                        type="text" 
+                        value={editedCard.back} 
+                        onChange={(e) => handleInputChange(e, 'back')}
                         />
-                        <p>Back view</p>
-                        <input 
-                            type="text" 
-                            value={editedCard.back} 
-                            onChange={(e) => handleInputChange(e, 'back')}
-                            />
-                        <div className={styles.itemDetailsButton}>
-                            <button onClick={handleSave}>Save changes</button>
-                            <button onClick={handleDelete}>Delete item</button>
-                        </div>
-                        
+                    <div className={styles.itemDetailsButton}>
+                        <button onClick={handleSave}>Save changes</button>
+                        <button onClick={handleDelete}>Delete item</button>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
