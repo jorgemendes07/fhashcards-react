@@ -29,13 +29,14 @@ export default function DeckDetail({ deckName, onBack }) {
             <h2>{deckName}</h2>
             <hr />
             
-            <button onClick={handleCardList}>
+            <button className={styles.deckButton} onClick={handleCardList}>
                 + Add card
             </button>
             <br />
 
             {cardList.map((item) => (
                 <p
+                className={styles.deckCardItem}
                 key={item.id}
                 onClick={() => handleCardClick(item.id)}
                 >

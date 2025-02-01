@@ -11,14 +11,14 @@
     user-select: none;
 }
 
-.deckDetailContainer p {
+.deckDetailContainer .deckCardItem {
     cursor: pointer;
     transition: .4s;
     padding: .4em;
     margin: .4em 0;
 }
 
-.deckDetailContainer button {
+.deckDetailContainer .deckButton {
     font-size: 1.2em;
     background-color: transparent;
     border: dotted 0.2em;
@@ -29,11 +29,11 @@
     
 }
 
-.deckDetailContainer P:hover  {
+.deckDetailContainer .deckCardItem:hover  {
     background-color: rgb(189, 189, 189);
     transform: scale(1.1);
 }
 
-.deckDetailContainer button:hover {
+.deckDetailContainer .deckButton:hover {
     background-color: rgb(189, 189, 189);
 }
