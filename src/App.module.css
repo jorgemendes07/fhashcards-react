@@ -1,7 +1,7 @@
 .appContainer {
     display: grid;
     grid-template-areas: 'nav details main';
-    transition: grid-template-columns 0.4s ease;
+    /* transition: grid-template-columns 0.4s ease; */
 
 }
 
