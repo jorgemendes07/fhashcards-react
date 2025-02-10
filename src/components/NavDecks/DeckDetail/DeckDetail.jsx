@@ -4,11 +4,15 @@ import ItemDeckConfig from './ItemDeckConfig/ItemDeckConfig'
 
 export default function DeckDetail({ deckName, onBack }) {
 
-    const [cardList, setCardList] = useState(() => {
-        const savedList = localStorage.getItem(`list-${deckName}`)
-        return savedList ? JSON.parse(savedList) : []
-    })
+    const [cardList, setCardList] = useState([])
 
+    // carrega os dados ao entrar no deck
+    useEffect(() => {
+        const savedList = localStorage.getItem(`list-${deckName}`)
+        setCardList(savedList ? JSON.parse(savedList) : []) 
+    }, [deckName]) //sempre recarrega quando troca de deck
+
+    // Salva os dados quando o cardList mudar
     useEffect(() => {
         localStorage.setItem(`list-${deckName}`, JSON.stringify(cardList))
     }, [cardList, deckName])
