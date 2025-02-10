@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './DeckDetail.module.css'
 import ItemDeckConfig from './ItemDeckConfig/ItemDeckConfig'
 
 export default function DeckDetail({ deckName, onBack }) {
 
-    const [cardList, setCardList] = useState([])
+    const [cardList, setCardList] = useState(() => {
+        const savedList = localStorage.getItem(`list-${deckName}`)
+        return savedList ? JSON.parse(savedList) : []
+    })
+
+    useEffect(() => {
+        localStorage.setItem(`list-${deckName}`, JSON.stringify(cardList))
+    }, [cardList, deckName])
+
     const [selectedCardId, setSelectedCardId] = useState(null)
 
     const handleCardList = () => {
