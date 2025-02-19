@@ -21,6 +21,10 @@ export default function NavDecks({ onDeckSelect }) {
         }
     }
 
+    const handleDeckSelect = (deck) => {
+        onDeckSelect(deck)
+    } 
+
     return (
         <div className={styles.navContainer} >
             <h2>My Decks</h2>
@@ -34,7 +38,7 @@ export default function NavDecks({ onDeckSelect }) {
             {decks.map((deck, index) => (
                 <p 
                     key={index}
-                    onClick={() => onDeckSelect(deck)}
+                    onClick={() => handleDeckSelect(deck)}
                     className={styles.deckItem}
                     >
                         {deck}

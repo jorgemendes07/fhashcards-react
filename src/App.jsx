@@ -8,10 +8,17 @@ import DeckDetail from './components/NavDecks/DeckDetail/DeckDetail'
 
 export default function App() {
   const [selectedDeck, setSelectedDeck] = useState(null)
+  const [isDeckDetailVisible, setIsDeckDetailVisible] = useState(false)
 
   const handleDeckSelected = (deckName) => {
-      setSelectedDeck(prev => (prev === deckName? null : deckName))
-      }
+    if (selectedDeck === deckName) {
+      setIsDeckDetailVisible(false)
+      setSelectedDeck(null)
+    } else {
+      setSelectedDeck(deckName)
+      setIsDeckDetailVisible(true)
+    }
+  }
 
   return (
     <div className={`${styles.appContainer} ${selectedDeck ? styles.appContainerWithDetails : styles.appContainerWithoutDetails}`}
@@ -20,7 +27,7 @@ export default function App() {
         <NavDecks onDeckSelect={handleDeckSelected}/>
       </div>
     
-      {selectedDeck && (
+      {isDeckDetailVisible && selectedDeck && (
         <div className={styles.details}>
           <DeckDetail
             deckName={selectedDeck}
