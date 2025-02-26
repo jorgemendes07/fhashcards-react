@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import styles from './ItemDeckConfig.module.css'
 
-export default function ItemDeckConfig({ card, onClose }) {
+export default function ItemDeckConfig({ card, onClose, onUpdate, onDelete }) {
     const [editedCard, setEditedCard] = useState(card)
 
     const handleSave = () => {
-        console.log('Salvar alterações para a carta:', editedCard)
+        onUpdate(editedCard)
+        onClose()
     }
 
     const handleDelete = () => {
-        console.log('Deletar carta com id:', card.id)
+        onDelete(card.id)
+        onClose()
     }
 
     const handleInputChange = (e, field) => {

@@ -50,6 +50,16 @@ export default function DeckDetail({ deckName }) {
     setSelectedCardId(id)
   }
 
+  const handleUpdateCard = (updatedCard) => {
+    setCardList((prevList) =>
+      prevList.map((card) => (card.id === updatedCard.id ? updatedCard : card))
+    )
+  }
+
+  const handleDeleteCard = (cardId) => {
+    setCardList((prevList) => prevList.filter((card) => card.id !== cardId))
+  }
+
   if (!deckName) {
     return <h2>Please select a deck</h2>
   }
@@ -78,6 +88,8 @@ export default function DeckDetail({ deckName }) {
         <ItemDeckConfig 
           card={cardList.find(item => item.id === selectedCardId)} 
           onClose={() => setSelectedCardId(null)}
+          onUpdate={handleUpdateCard}
+          onDelete={handleDeleteCard}
         />
       )}
     </div>
