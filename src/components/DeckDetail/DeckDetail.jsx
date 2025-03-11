@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from './DeckDetail.module.css'
-import ItemDeckConfig from './ItemDeckConfig/ItemDeckConfig'
+import ItemDeckConfig from '../ItemDeckConfig/ItemDeckConfig'
 
 export default function DeckDetail({ deckName }) {
   const [cardList, setCardList] = useState(() => {
