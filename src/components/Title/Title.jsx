@@ -1,9 +1,9 @@
 import './Title.module.css'
 
-export default function Title() {
+export default function Title({ deckName }) {
     return (
         <>
-            <h1>Flash Cards</h1>
+            <h1>{deckName ? `${deckName}` : 'Flash Cards'}</h1>
         </>
     )
 }

@@ -36,7 +36,7 @@ export default function App() {
       )}
       
       <div className={styles.main}>
-        <Title />
+        <Title deckName={selectedDeck}/>
         <Card content='scary'/>
         <Level />
       </div>
